@@ -52,18 +52,12 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 //    timestamp before)
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
-    boost::assign::map_list_of
-    (0,      uint256("0x000008467c3a9c587533dea06ad9380cded3ed32f9742a6c0c1aebc21bf2bc9b"))
-    (263046, uint256("0x3eba7f1e1b4a076d5333681bb9b8ee2aeac9eead6c82c8e65405726dda355826"))
-    (278818, uint256("0x86333b5dbcf898cfbc33038a10e935f2ecfd88aa8a967e2bc39c6dd9cc6c2e93"))
-    (286460, uint256("0xb74bd460b2bdb5f0c873c13266cc277433629f1e7714f35f765b169a1e990736"))
-    (428959, uint256("0xeacbd88678e8520fc90cd54757ebfe2382e7160f52e34c4c8ad8ad414f59c098"));
-
+    boost::assign::map_list_of(0, uint256("0x0237c440e1cf5b9d9852fa87842e419a995341b6a655830e96afc272e555cc90"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1533767118, // * UNIX timestamp of last checkpoint block
-    600513,     // * total number of transactions between genesis and last checkpoint
+    0,     // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };
@@ -102,7 +96,7 @@ public:
         pchMessageStart[2] = 0x12;
         pchMessageStart[3] = 0xae;
         vAlertPubKey = ParseHex("04d2df519f53e2eaa4a7d7ff3347a360520c2f4b8f07d0241b5b6ba5ce8e3d6ecba5443696473a387adff27aa6bb72b952ff23026e088cff9f47cbb387ed52c326");
-        nDefaultPort = 9333;
+        nDefaultPort = 17293;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         nSubsidyHalvingInterval = 1050000;
         nMaxReorganizationDepth = 100;
@@ -137,7 +131,7 @@ public:
          * nonce: 21256609
          * genesis_hash: 000008467c3a9c587533dea06ad9380cded3ed32f9742a6c0c1aebc21bf2bc9b
          */
-        const char* pszTimestamp = "Even With Energy Surplus, Canada Unable to Meet Electricity Demands of Bitcoin Miners";
+        const char* pszTimestamp = "ZCore Genesis Block mined by Mosqueiro";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -153,13 +147,8 @@ public:
         genesis.nNonce = 21256609;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000008467c3a9c587533dea06ad9380cded3ed32f9742a6c0c1aebc21bf2bc9b"));
-        assert(genesis.hashMerkleRoot == uint256("0x07cbcacfc822fba6bbeb05312258fa43b96a68fc310af8dfcec604591763f7cf"));
-
-        // DNS Seeding
-        vSeeds.push_back(CDNSSeedData("seed1.savebitcoin.io", "seed1.savebitcoin.io"));
-        vSeeds.push_back(CDNSSeedData("seed2.savebitcoin.io", "seed2.savebitcoin.io"));
-        vSeeds.push_back(CDNSSeedData("seed3.savebitcoin.io", "seed3.savebitcoin.io"));
+        assert(hashGenesisBlock == uint256("0x0237c440e1cf5b9d9852fa87842e419a995341b6a655830e96afc272e555cc90"));
+        assert(genesis.hashMerkleRoot == uint256("0x9034cf128db87ad436abb3a27b4846e3b347828ff592122de16696de218fd75d"));
 
         // Bitcoin Green addresses start with 'G'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 38);
@@ -216,7 +205,7 @@ public:
         pchMessageStart[2] = 0xe5;
         pchMessageStart[3] = 0xa8;
         vAlertPubKey = ParseHex("04ba89975265af1d4c6295d3587eb4a0e4b758bde1621ef2ab8f92b98e7ed1c85547c9b7a3f145a66aa2abb91db5c13295828e77d823ea6d9b4bb89912425e1efe");
-        nDefaultPort = 19333;
+        nDefaultPort = 27293;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
@@ -234,7 +223,7 @@ public:
         genesis.nNonce = 21148656;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000000938f4f20c6ccb3fea36539ade5af73d0bb45c55af64c7f7f1bfa5f3381"));
+        assert(hashGenesisBlock == uint256("0x3b3ad644ce58261818139f866afe6e1ca75c186efbdca245ebc6a44332045656"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -303,8 +292,8 @@ public:
         genesis.nNonce = 20542300;
 
         hashGenesisBlock = genesis.GetHash();
-        nDefaultPort = 29333;
-        assert(hashGenesisBlock == uint256("0x229874aa8a92df3347600978e226ba57bc994b9fa291ea50519afafca2d50ed3"));
+        nDefaultPort = 37293;
+        assert(hashGenesisBlock == uint256("0x0526b8f05cf9c9df668489df0b0d1e2a32b54e6d27435fbfa8ea528cad50af30"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Regtest mode doesn't have any DNS seeds.
